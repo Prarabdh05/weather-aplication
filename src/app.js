@@ -42,10 +42,9 @@ app.get('/help', (req, res) => {
 })
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
-        return res.render('index', {
-            title: 'Weather',
-            name: 'Prarabdh Gupta'
-        });
+        return res.send({
+            error: 'You must provide an address!'
+        })
     }
     const address = req.query.address;
 
